@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://emmofmqks6d6"]
+
+[ext_resource type="Script" path="res://game/ui/ShipOverlay.cs" id="1_vhu04"]
+[ext_resource type="Texture2D" uid="uid://c7hokb1wa4y8q" path="res://assets/circle_128.png" id="2_3j36b"]
+[ext_resource type="Texture2D" uid="uid://b07w63u2dhkhc" path="res://assets/circle_32.png" id="3_5tyoi"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vhu04")
+
+[node name="Joystick" type="TouchScreenButton" parent="."]
+position = Vector2(0, 520)
+texture_normal = ExtResource("2_3j36b")
+
+[node name="Thumb" type="Sprite2D" parent="Joystick"]
+position = Vector2(64, 64)
+texture = ExtResource("3_5tyoi")

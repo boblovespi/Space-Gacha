@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://4ercspncpv06"]
+
+[ext_resource type="PackedScene" uid="uid://dlb5ptyx5o4dl" path="res://game/Ship.tscn" id="1_fulms"]
+[ext_resource type="PackedScene" uid="uid://emmofmqks6d6" path="res://game/ui/ShipOverlay.tscn" id="2_udd16"]
+
+[sub_resource type="Environment" id="Environment_4sjyq"]
+background_mode = 1
+background_color = Color(0, 0.00392157, 0.0196078, 1)
+ambient_light_color = Color(0.0862745, 0.0980392, 0.129412, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7q6ar"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0d0x"]
+shading_mode = 0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4sjyq")
+
+[node name="Node3D" parent="." instance=ExtResource("1_fulms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267131, 0, -1.32619)
+
+[node name="Control" parent="." instance=ExtResource("2_udd16")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185746, 7.00948, -12.31)
+layers = 2
+mesh = SubResource("SphereMesh_7q6ar")
+skeleton = NodePath("../MeshInstance3D/OmniLight3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0d0x")
+metadata/_edit_group_ = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D2"]
+light_color = Color(1, 0.733333, 0, 1)
+omni_range = 102.439
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0259585, 0.0517111, -14.1087)
+layers = 2
+mesh = SubResource("SphereMesh_7q6ar")
+skeleton = NodePath("../MeshInstance3D/OmniLight3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0d0x")
+metadata/_edit_group_ = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D3"]
+omni_range = 102.439
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.83672, 10.5142, -1.64298)
+layers = 2
+mesh = SubResource("SphereMesh_7q6ar")
+skeleton = NodePath("../MeshInstance3D/OmniLight3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0d0x")
+metadata/_edit_group_ = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D4"]
+omni_range = 102.439
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23181, 3.50474, 2.07462)
+layers = 2
+mesh = SubResource("SphereMesh_7q6ar")
+skeleton = NodePath("OmniLight3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_m0d0x")
+metadata/_edit_group_ = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+omni_range = 102.439
+metadata/_edit_group_ = true
+
+[connection signal="Movement" from="Control" to="Node3D" method="SetForce"]
+[connection signal="MovementEnd" from="Control" to="Node3D" method="EndForce"]
