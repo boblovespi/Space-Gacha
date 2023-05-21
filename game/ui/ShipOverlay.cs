@@ -33,7 +33,7 @@ public partial class ShipOverlay : Control
 		{
 			if (touch.Pressed)
 			{
-				var dir = (touch.Position - joystickPosition).Normalized();
+				var dir = (touch.Position - joystickPosition).LimitLength(64) / 64;
 				EmitSignal(SignalName.Movement, dir);
 				SetThumbPos(touch.Position - joystickPosition);
 			}
@@ -45,7 +45,7 @@ public partial class ShipOverlay : Control
 		}
 		if (@event is InputEventScreenDrag drag && joystick.IsPressed())
 		{
-			var dir = (drag.Position - joystickPosition).Normalized();
+			var dir = (drag.Position - joystickPosition).LimitLength(64) / 64;
 			EmitSignal(SignalName.Movement, dir);
 			SetThumbPos(drag.Position - joystickPosition);
 		}
@@ -53,6 +53,6 @@ public partial class ShipOverlay : Control
 
 	private void SetThumbPos(Vector2 pos)
 	{
-		joystickThumb.Position = pos + new Vector2(64, 64);
+		joystickThumb.Position = pos.LimitLength(64) + new Vector2(64, 64);
 	}
 }
