@@ -10,6 +10,7 @@ bounce = 0.41
 [sub_resource type="BoxShape3D" id="BoxShape3D_nqghc"]
 
 [node name="Node3D" type="RigidBody3D"]
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_yvvbi")
 script = ExtResource("1_it5hf")
 

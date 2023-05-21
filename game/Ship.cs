@@ -19,7 +19,7 @@ public partial class Ship : RigidBody3D
 
 	public void SetForce(Vector2 dir)
 	{
-		ConstantTorque = new Vector3(-dir.Y, dir.X, 0);
+		ConstantTorque = -GlobalTransform.Basis.Y * dir.X - GlobalTransform.Basis.X * dir.Y;
 	}
 
 	public void EndForce()
