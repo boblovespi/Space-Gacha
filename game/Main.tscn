@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://4ercspncpv06"]
+[gd_scene load_steps=7 format=3 uid="uid://4ercspncpv06"]
 
-[ext_resource type="PackedScene" uid="uid://dlb5ptyx5o4dl" path="res://game/Ship.tscn" id="1_fulms"]
+[ext_resource type="PackedScene" uid="uid://cgomvnmn3ir1j" path="res://game/entity/Ship.tscn" id="1_fulms"]
+[ext_resource type="Script" path="res://game/Main.cs" id="1_sbgfn"]
 [ext_resource type="PackedScene" uid="uid://emmofmqks6d6" path="res://game/ui/ShipOverlay.tscn" id="2_udd16"]
 
 [sub_resource type="Environment" id="Environment_4sjyq"]
@@ -14,12 +15,10 @@ ambient_light_color = Color(0.0862745, 0.0980392, 0.129412, 1)
 shading_mode = 0
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_sbgfn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4sjyq")
-
-[node name="Node3D" parent="." instance=ExtResource("1_fulms")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267131, 0, -1.32619)
 
 [node name="Control" parent="." instance=ExtResource("2_udd16")]
 
@@ -71,6 +70,8 @@ metadata/_edit_group_ = true
 [node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
 omni_range = 102.439
 metadata/_edit_group_ = true
+
+[node name="Node3D" parent="." instance=ExtResource("1_fulms")]
 
 [connection signal="Movement" from="Control" to="Node3D" method="SetForce"]
 [connection signal="MovementEnd" from="Control" to="Node3D" method="EndForce"]

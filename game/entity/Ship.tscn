@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlb5ptyx5o4dl"]
+[gd_scene load_steps=5 format=3 uid="uid://cgomvnmn3ir1j"]
 
-[ext_resource type="Script" path="res://game/Ship.cs" id="1_it5hf"]
+[ext_resource type="Script" path="res://game/entity/Ship.cs" id="1_it5hf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yvvbi"]
 bounce = 0.41
@@ -9,9 +9,10 @@ bounce = 0.41
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nqghc"]
 
-[node name="Node3D" type="RigidBody3D"]
+[node name="Ship" type="RigidBody3D"]
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_yvvbi")
+can_sleep = false
 script = ExtResource("1_it5hf")
 
 [node name="Camera3D" type="Camera3D" parent="."]
