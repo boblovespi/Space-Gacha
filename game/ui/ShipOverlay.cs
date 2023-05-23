@@ -37,7 +37,7 @@ public partial class ShipOverlay : Control
 		bool swipe = true;
 		if (@event is InputEventScreenTouch touch)
 		{
-			if (touch.Pressed)
+			if (touch.Pressed && joystick.IsPressed())
 			{
 				var dir = (touch.Position - joystickPosition).LimitLength(64) / 64;
 				EmitSignal(SignalName.Movement, dir);
