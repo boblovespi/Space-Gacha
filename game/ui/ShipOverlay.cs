@@ -1,9 +1,9 @@
 using Godot;
-using System;
 
 public partial class ShipOverlay : Control
 {
 	private TouchScreenButton joystick;
+	private TouchScreenButton fireButton;
 	private Sprite2D joystickThumb;
 	private Vector2 joystickPosition;
 	private Label angularVel;
@@ -16,12 +16,21 @@ public partial class ShipOverlay : Control
 	[Signal]
 	public delegate void MovementEndEventHandler();
 
+	/// <summary>
+	/// Signal fired when the 'fire' button is pressed.
+	/// </summary>
+	[Signal]
+	public delegate void FireEventHandler();
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		joystick = GetNode<TouchScreenButton>("Joystick");
 		joystickThumb = joystick.GetNode<Sprite2D>("Thumb");
 		joystickPosition = joystick.Position + new Vector2(64, 64);
+
+		fireButton = GetNode<TouchScreenButton>("FireButton");
+		fireButton.Released += () => { EmitSignal(SignalName.Fire); GD.Print("Fire!"); };
 
 		angularVel = GetNode<Label>("VBoxContainer/AngularVelocity");
 	}
