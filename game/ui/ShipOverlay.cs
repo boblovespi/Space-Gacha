@@ -10,9 +10,16 @@ public partial class ShipOverlay : Control
 
 	private ITrackable ship;
 
+	/// <summary>
+	/// Signal fired when the joystick is moved.
+	/// </summary>
+	/// <param name="normedDirection">The position on the joystick, capped at a length of 1.</param>
 	[Signal]
 	public delegate void MovementEventHandler(Vector2 normedDirection);
 
+	/// <summary>
+	/// Signal fired when the joystick is released.
+	/// </summary>
 	[Signal]
 	public delegate void MovementEndEventHandler();
 
@@ -30,7 +37,11 @@ public partial class ShipOverlay : Control
 		joystickPosition = joystick.Position + new Vector2(64, 64);
 
 		fireButton = GetNode<TouchScreenButton>("FireButton");
-		fireButton.Released += () => { EmitSignal(SignalName.Fire); GD.Print("Fire!"); };
+		fireButton.Released += () =>
+		{
+			EmitSignal(SignalName.Fire);
+			GD.Print("Fire!");
+		};
 
 		angularVel = GetNode<Label>("VBoxContainer/AngularVelocity");
 	}
