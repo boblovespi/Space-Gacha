@@ -1,20 +1,17 @@
 using Godot;
 using System;
 
-public partial class Main : Node3D
+public abstract partial class test1 : Node
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var shipUi = GetNode<ShipOverlay>("Control");
-		var ship = GetNode<Ship>("Node3D");
-		shipUi.Track(ship);
-		GetNode<test1>("t2").SayHi();
-		GetNode<test1>("t3").SayHi();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
+
+	public abstract void SayHi();
 }
