@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dutuipxrvvmm6"]
+
+[ext_resource type="Script" path="res://game/damage/AbstractHealthController.cs" id="1_4jkfm"]
+
+[node name="HealthController" type="Node"]
+script = ExtResource("1_4jkfm")

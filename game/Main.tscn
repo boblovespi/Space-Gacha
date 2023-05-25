@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://4ercspncpv06"]
+[gd_scene load_steps=7 format=3 uid="uid://4ercspncpv06"]
 
 [ext_resource type="PackedScene" uid="uid://cgomvnmn3ir1j" path="res://game/entity/Ship.tscn" id="1_fulms"]
 [ext_resource type="Script" path="res://game/Main.cs" id="1_sbgfn"]
 [ext_resource type="PackedScene" uid="uid://emmofmqks6d6" path="res://game/ui/ShipOverlay.tscn" id="2_udd16"]
-[ext_resource type="PackedScene" uid="uid://c8qdsww68jojj" path="res://test2.tscn" id="4_msoga"]
-[ext_resource type="PackedScene" uid="uid://8u44alyawmf6" path="res://test3.tscn" id="5_m4gok"]
 
 [sub_resource type="Environment" id="Environment_4sjyq"]
 background_mode = 1
@@ -74,10 +72,6 @@ omni_range = 102.439
 metadata/_edit_group_ = true
 
 [node name="Node3D" parent="." instance=ExtResource("1_fulms")]
-
-[node name="t2" parent="." instance=ExtResource("4_msoga")]
-
-[node name="t3" parent="." instance=ExtResource("5_m4gok")]
 
 [connection signal="Movement" from="Control" to="Node3D" method="SetForce"]
 [connection signal="MovementEnd" from="Control" to="Node3D" method="EndForce"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://xuqreoymu7ct"]
+
+[ext_resource type="PackedScene" uid="uid://dutuipxrvvmm6" path="res://game/damage/AbstractHealthController.tscn" id="1_1qy20"]
+[ext_resource type="Script" path="res://game/damage/SimpleHealthController.cs" id="2_o8tr1"]
+
+[node name="HealthController" instance=ExtResource("1_1qy20")]
+script = ExtResource("2_o8tr1")
