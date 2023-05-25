@@ -3,15 +3,18 @@ using System;
 
 public abstract partial class AbstractHealthController : Node
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
+	/// <summary>
+	/// Returns the armor type that is currently exposed.
+	/// </summary>
 	public abstract ArmorType ArmorType { get; }
+
+	/// <summary>
+	/// Returns true if and only if this owner is dead.
+	/// </summary>
+	public abstract bool IsDead { get; }
+
+	/// <summary>
+	/// Damage this owner by the given DamageInfo.
+	/// </summary>
+	public abstract void Damage(DamageInfo incomingDamage);
 }
