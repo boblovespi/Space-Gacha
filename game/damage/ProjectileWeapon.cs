@@ -1,18 +1,25 @@
 using Godot;
 using System;
 
-public partial class Main : Node3D
+public partial class ProjectileWeapon : Weapon
 {
+	[Export]
+	public PackedScene Projectile { get; set; }
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var shipUi = GetNode<ShipOverlay>("Control");
-		var ship = GetNode<Ship>("Node3D");
-		shipUi.Track(ship);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	}
+
+	public override void Fire()
+	{
+		var proj = Projectile.Instantiate<Projectile>();
+		proj.LinearVelocity = 10 * -GlobalTransform.Basis.Z;
+		AddChild(proj);
 	}
 }

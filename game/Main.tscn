@@ -73,5 +73,6 @@ metadata/_edit_group_ = true
 
 [node name="Node3D" parent="." instance=ExtResource("1_fulms")]
 
+[connection signal="Fire" from="Control" to="Node3D" method="Fire"]
 [connection signal="Movement" from="Control" to="Node3D" method="SetForce"]
 [connection signal="MovementEnd" from="Control" to="Node3D" method="EndForce"]

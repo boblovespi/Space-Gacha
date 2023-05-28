@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgomvnmn3ir1j"]
+[gd_scene load_steps=7 format=3 uid="uid://cgomvnmn3ir1j"]
 
 [ext_resource type="Script" path="res://game/entity/Ship.cs" id="1_it5hf"]
+[ext_resource type="PackedScene" uid="uid://cfg0gbc87eewq" path="res://game/damage/ProjectileWeapon.tscn" id="2_brhow"]
+[ext_resource type="PackedScene" uid="uid://cuwremce30u8d" path="res://game/entity/Projectile.tscn" id="3_ma4tp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yvvbi"]
 bounce = 0.41
@@ -23,3 +25,11 @@ mesh = SubResource("BoxMesh_qbn6b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_nqghc")
+
+[node name="Weapon" parent="." instance=ExtResource("2_brhow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.833084, 0)
+Projectile = ExtResource("3_ma4tp")
+
+[node name="Weapon2" parent="." instance=ExtResource("2_brhow")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.893493, 0)
+Projectile = ExtResource("3_ma4tp")

@@ -26,4 +26,14 @@ public partial class Ship : RigidBody3D, ITrackable
 	{
 		SetForce(Vector2.Zero);
 	}
+
+	public void Fire()
+	{
+		var nodes = GetChildren();
+		foreach (var child in nodes)
+		{
+			if (child is Weapon weapon)
+				weapon.Fire();
+		}
+	}
 }
