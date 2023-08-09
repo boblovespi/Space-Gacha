@@ -19,6 +19,7 @@ public partial class SimpleHealthController : AbstractHealthController
 
 	public override void Damage(DamageInfo incomingDamage)
 	{
+		GD.Print("hit");
 		Health -= incomingDamage.Damage;
 	}
 }
