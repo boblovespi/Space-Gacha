@@ -1,13 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://4ercspncpv06"]
+[gd_scene load_steps=10 format=3 uid="uid://4ercspncpv06"]
 
 [ext_resource type="PackedScene" uid="uid://cgomvnmn3ir1j" path="res://game/entity/Ship.tscn" id="1_fulms"]
 [ext_resource type="Script" path="res://game/Main.cs" id="1_sbgfn"]
+[ext_resource type="Shader" path="res://game/graphics/SkyShader.gdshader" id="2_mkd1s"]
 [ext_resource type="PackedScene" uid="uid://emmofmqks6d6" path="res://game/ui/ShipOverlay.tscn" id="2_udd16"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjri2"]
+shader = ExtResource("2_mkd1s")
+
+[sub_resource type="Sky" id="Sky_rxc24"]
+sky_material = SubResource("ShaderMaterial_fjri2")
+
 [sub_resource type="Environment" id="Environment_4sjyq"]
-background_mode = 1
+background_mode = 2
 background_color = Color(0, 0.00392157, 0.0196078, 1)
+sky = SubResource("Sky_rxc24")
 ambient_light_color = Color(0.0862745, 0.0980392, 0.129412, 1)
+glow_strength = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_7q6ar"]
 

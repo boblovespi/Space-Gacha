@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuwremce30u8d"]
+[gd_scene load_steps=6 format=3 uid="uid://cuwremce30u8d"]
 
 [ext_resource type="Script" path="res://game/entity/Projectile.cs" id="1_1lxba"]
 [ext_resource type="PackedScene" uid="uid://t36ib5bcyfix" path="res://game/damage/DamageArea.tscn" id="2_n5ll1"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j55w5"]
+albedo_color = Color(0.341176, 0.878431, 1, 1)
+metallic_specular = 1.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.34, 0.879, 1, 1)
+emission_energy_multiplier = 0.18
+
 [sub_resource type="SphereMesh" id="SphereMesh_muawc"]
+material = SubResource("StandardMaterial3D_j55w5")
 radius = 0.15
 height = 0.3
 
